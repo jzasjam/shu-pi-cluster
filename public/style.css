@@ -1,0 +1,208 @@
+body {
+    background-color: #f1f1f1 !important;
+}
+
+ul.sub-tabs li.nav-item a {
+    border: 1px solid #999;
+    border-bottom: 1px solid #CCC;
+    padding-top: 0.2em;
+    border-radius: 0.4em 0.4em 0em 0em;
+    display: block;
+    background: #f1f1f1;
+    text-decoration: none;
+    color: #333;
+}
+
+ul.sub-tabs li.nav-item a.active {
+    border-bottom: none;
+    padding-bottom: 0.3em;
+    margin-top: -0.2em;
+    background: none;
+}
+
+    .subnav-link.active {
+        font-weight: bold;
+    }
+
+.w3-bar {
+    background-color: #621b40 !important;
+}
+
+    .w3-bar .w3-button:hover {
+        background-color: #ba0046 !important;
+        color: #FFFFFF !important;
+    }
+
+.w3-content {
+    background-color: #FFFFFF !important;
+}
+
+#charts canvas {
+    max-height: 75px !important;
+}
+#charts .chart-container canvas {
+    max-height: none !important;
+    display: block;
+}
+.chart-container {
+    width: 100%;
+    height: 250px;
+}
+
+.results {
+    font-family: monospace;
+    font-weight: 500;
+    border: 2px solid #DDDDDD;
+    word-wrap: break-word;
+    letter-spacing: -1px;
+    padding: 0.4em;
+    background: #111;
+    color: #eee;
+    text-align: left;
+    max-width: 800px;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+
+#results {
+    border-top: 1px solid #999;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#results li {
+    border-bottom: 1px solid #999;
+    padding: 1em 0 0.6em;
+}
+
+    @media only screen and (max-width: 600px) {
+        #results li  {
+            font-size: 0.8em;
+        }
+    }
+
+#results li h3 {
+    line-height: 1em;
+    padding-bottom: 0;
+    display: inline-block;
+    margin-right: 0.4em;
+}
+@media only screen and (max-width: 600px) {
+    #results li h3 {
+        font-size: 1.5em;
+    }
+}
+
+#results li span {
+    font-size: 1.3em;
+    float: right;
+}
+#results li span.small {
+    font-size: 1em;
+}
+#results li span.xsmall {
+    font-size: 0.8em;
+}
+.code-box {
+    display: none;
+}
+.code-box.show {
+    display: block;
+}
+.code-box {
+    text-align: left;
+    font-family: monospace;
+    font-size: 1em;
+    border: 1px solid #999;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    word-wrap: break-word;
+    color: #898585;
+}
+
+.code-box pre {
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .w3-bar-item {
+        font-size: 0.8em;
+    }
+}
+
+
+#controls {
+    display: inline-block; 
+    padding: 1em 2em; 
+    border: 4px solid #999; 
+    border-radius: 1em; 
+    box-shadow: 0px 3px 4px 0px #aaa; 
+    margin: 1em; 
+    background-color: #efefef; 
+    border: 1px solid #ddd;
+}
+
+
+#waiting {
+    display: inline-block; 
+    padding: 0.4em 1em;  
+    background-color: #ddd; 
+    border: 1px solid #aaa; 
+    border-radius: 1em; 
+    box-shadow: 0px 3px 4px 0px #aaa;
+    cursor: pointer;
+}
+#waiting label{
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#waiting input {
+    display: none;
+}
+
+#collecting {
+    display: none; 
+    padding: 0.4em 1em; 
+    background-color: #c4d5c6; 
+    border: 1px solid #1e8522; 
+    color: #17601a; 
+    border-radius: 1em; 
+    box-shadow: 0px 3px 4px 0px #aaa;
+}
+
+
+#messages ul {
+    border-top: 1px solid #999;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#messages li {
+    border-bottom: 1px solid #999;
+    padding: 1em;
+}
+
+
+
+/* Highlight New Messages */
+/* Define a CSS animation */
+@keyframes highlight {
+    0% {
+        background: inherit;
+    }
+    50% {
+        background: #be8ecc;
+    }
+    100% {
+        background: inherit;
+    }
+}
+
+/* Apply the animation to a class */
+.highlighted {
+    animation: highlight 5s ease; /* Change 2s to the duration you want */
+}
