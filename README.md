@@ -99,6 +99,11 @@ PsUtil:
 
 ![SHU Pi Cluster UI](https://github.com/user-attachments/assets/d94687f8-10b3-4182-8c67-2aa6e0d4bc29)
 
+5. When the cluster is in use, you can view the Dispy dashboard at http://[YOUR-CLIENT-IP]:8181 or http://[YOUR-CLIENT-HOSTNAME]:8181
+
+![Dispy Dashboard](https://github.com/user-attachments/assets/f6237e3a-971b-4e05-bbd2-b7ca78cc8f27)
+
+
 or
 
 1. Run the script
