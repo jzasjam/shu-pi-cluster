@@ -8,80 +8,88 @@
 
 Download or Clone the repository files to a chosen directory.
 
+Follow the below Client and Server(s) cluster setup instructions for Raspberry Pi's & SenseHAT's with browser based UI to test the cluster by illuminating the LED's - based on the [OctaPi Client Setup Instructions](https://projects.raspberrypi.org/en/projects/build-an-octapi/3)
+
 --------------------------------------------------------
-## Client Install Dependencies
-Basic Reqirements or the project and UI
+## Client Install
+**Install the below to a Raspberry Pi - this will be the 'Client' to distribute jobs to the 'Servers'**
+
+If [Python](https://www.python.org/downloads) is not installed...
 
 > Install [Python](https://www.python.org/downloads)
 
-> Install [NodeJS](https://nodejs.org)
-
-Note: If issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...
-
-> `sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
-
 ### Client: Cluster Management Dependencies
-Libraries which support distributing jobs to the cluster / servers / node - following the [OctaPi Client Setup Instructions](https://projects.raspberrypi.org/en/projects/build-an-octapi/3)
 
-> Dispy: `sudo pip3 install dispy`
+**Install the libraries which support distributing jobs to the cluster / servers / nodes**
 
-> nmap: `sudo apt-get install nmap`
+Dispy: `sudo pip3 install dispy`
 
+*Note: If issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...*
+
+`sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
 
 ### Client: UI Dependencies
-The UI gives you access to the script in this repository. These installations are required to create the UI web server with NodeJS
+**These installations are required to create the UI web server with NodeJS**
 
-Install [NodeJS](https://nodejs.org)
-> eg: `curl -sL https://deb.nodesource/setup_18.x | sudo -E bash -`
+> Install [NodeJS](https://nodejs.org)...
 
-> then: `sudo apt install -y nodejs`
+`curl -sL https://deb.nodesource/setup_18.x | sudo -E bash -`
 
-> then: `sudo apt-get -f install npm`
+then: `sudo apt install -y nodejs`
 
-> check with: `node -v`
+check with: `node -v`
 
-Install NodeJS Modules
-> Node HTTP Server: `sudo npm install -g http-server`
+**Install NPM...**
 
-> Socket.io `sudo npm install socket.io`
+`sudo apt-get -f install npm`
 
-> Sense Hat LED: `sudo npm install sense-hat-led`
+**Install NodeJS Modules...**
 
-> Python Shell `sudo npm install python-shell`
+Node HTTP Server: `sudo npm install -g http-server`
 
-> NOTE: Check versions with `node -v package-name`node
+Socket.io `sudo npm install socket.io`
+
+Sense Hat LED: `sudo npm install sense-hat-led`
+
+Python Shell `sudo npm install python-shell`
+
+*NOTE: Check versions with the below (replacing the package-name)*
+>`node -v package-name`
 
 --------------------------------------------------------
-## Server Install Dependencies
-***NOTE: Each Server / Node requires any libraries required for jobs to be pre-installed***
+## Server Install 
+**Install the below to a Raspberry Pi - this will be a 'Server / Node' to execute distributed jobs from the 'Client'. You can then repeat these steps on other Raspberry Pi's or clone the SD to add additional Servers/Nodes to your cluster**
 
-Note: If issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...
+***NOTE: Each Server / Node will require any Python libraries or modules required for jobs to be pre-installed before running the cluster***
 
-> `sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
+*Note: Servers / Nodes can be cloned (eg Raspberry Pi SD cards using an [SD Cloning Tool](https://etcher.balena.io))*
 
 If [Python](https://www.python.org/downloads) is not installed...
 
 > Install [Python](https://www.python.org/downloads)
 
 ### Server: Cluster Node Dependencies
-Libraries which support the cluster / servers / nodes - following the [OctaPi Server Setup Instructions](https://projects.raspberrypi.org/en/projects/build-an-octapi/4)
+**Install libraries which support the cluster / servers / nodes**
 
-> Dispy: `sudo pip3 install dispy`
+Dispy: 
+`sudo pip3 install dispy`
 
-> PsUtil: `sudo pip3 install psutil`
+PsUtil: 
+`sudo pip3 install psutil`
 
-Note: Servers / Nodes can be cloned (eg Raspberry Pi SD cards using an [SD Cloning Tool](https://etcher.balena.io))
+*Note: If you have issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...*
+
+`sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
 
 --------------------------------------------------------
-## Usage:
+## How To Use:
 
-1. Have at least 1 Server / Node switched on and connected to the same network as the Client.
+1. Have at least 1 Server / Node switched on and connected to the same network as the Client
 
-2. In the terminal of the Client, cd to the directory you downloaded/extracted or moved it
-> *eg:* `cd Downloads/shu-pi-cluster`
+2. In the terminal of the Client, cd to the directory you downloaded/extracted or moved the repository
+*eg:* `cd Downloads/shu-pi-cluster`
 
-3. Run The UI
-> `node index.js`
+3. Run The UI `node index.js` or double click `start-ui.sh` (you may need to make this executable `chmod +x start-ui.sh`)
 
 4. In browser on same network as client, go to http://[YOUR-CLIENT-IP]:8080 or http://[YOUR-CLIENT-HOSTNAME]:8080 to view the UI
   This allows you to...
