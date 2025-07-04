@@ -2,7 +2,6 @@ var http = require('http').createServer(handler); //require http server, and cre
 var fs = require('fs'); //require filesystem module
 var io = require('socket.io')(http, { allowEIO3: true }) //require socket.io module and pass the http object (server)
 var path = require('path');
-const csv = require('csv-parser');
 
 //Using the standalone hw-specific library
 let matrix = require('sense-hat-led');
