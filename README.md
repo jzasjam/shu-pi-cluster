@@ -97,6 +97,7 @@ PsUtil:
    - Test Fog Node cluster
    - Test Client LEDs
 
+![SHU Pi Cluster UI](https://github.com/user-attachments/assets/d94687f8-10b3-4182-8c67-2aa6e0d4bc29)
 
 or
 
