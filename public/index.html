@@ -2,199 +2,350 @@
 <html lang="en">
 
 <head>
-    <title>SHU Pi Cluster UI</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css" integrity="sha512-KuSX+43gVS5MEIJD2ewtrFPOHqC1PJnL8o2f5ciggPC0JUZ8XV0QXlfArO1mSzKkVFdRjsBDfrTU96C5SuRfqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <!-- <link rel="stylesheet" href="spectrum.css"> -->
-    <!-- Font-Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <title>SHU Smart Computing: Raspberry Pi Cluster</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+
+    <!-- Custom fonts for this template
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <style>
-        body {
-            font-family: "Lato", sans-serif
+        .bg-gradient-primary {
+            background-color: #621B40;
+            background-image: linear-gradient(180deg, #621B40 10%, #b6004c 100%);
+            background-size: cover;
+        }
+        .results {
+            max-width: 100% !important
+        }
+        ul.sub-tabs li.nav-item a {
+            border-color: #d1d1d1 !important;
+        }
+        .tag {
+            padding: 0.2em 1em 0em;
+            border-radius: 1em;
+            margin-top: 0.5em;
         }
     </style>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
-<body>
+<body id="page-top">
 
-    <!-- Navbar -->
-    <div class="w3-top">
-        <div class="w3-bar w3-black w3-card">
-            <!-- <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:myFunction();"><i class="fa fa-bars"></i></a>-->
-            <a href="./" class="w3-bar-item w3-button w3-padding-large"><strong>SHU Pi Cluster</strong> | Sheffield Hallam University</a>
-            <!-- <a href="./" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Draw</a> -->
-            <!-- <a href="./send_message.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Send Message</a> -->
-            <!--
-            <div class="w3-dropdown-hover w3-hide-small">
-                <button class="w3-padding-large w3-button" title="More">Dropdown <i class="fa fa-caret-down"></i></button>     
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                  <a href="page1.html" class="w3-bar-item w3-button">Item 1</a>
-                  <a href="page2.html" class="w3-bar-item w3-button">Item 2</a>
-                </div>
-            </div>
-            -->
-        </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <!-- 
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-        <a href="pump.html" class="w3-bar-item w3-button">Pump</a>
-        <a href="bottle.html" class="w3-bar-item w3-button">Bottle</a>
-        <a href="bag.html" class="w3-bar-item w3-button">Bag</a>
-        <hr>
-        <a href="messages.html" class="w3-bar-item w3-button">Messages</a>
-    </div> 
-   -->
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <!--<div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>-->
+                <div class="sidebar-brand-text mx-3">SHU PI CLUSTER</div>
+            </a>
 
-    <!-- Page content -->
-    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-        <!-- The Main Section -->
-        <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:900px" id="band">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html"><i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a>
+            </li>
 
-            <h2 class="w3-wide">Cluster UI</h2>
-            <hr>
-            
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-            <!-- TABS -->
-            <ul class="nav nav-tabs nav-fill">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" attr-tab="test_cluster_tab">Test The Cluster</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" attr-tab="test_leds">Test Client LEDs</a>
-                </li>
-            </ul>
-
-            <br>
-            
-            <!-- TAB CONTENT -->
-
-            
-
-            
-            <!-- TAB -->
-            <div id="test_cluster_tab" class="chart_content active">
-
-                <h4>Test The Cluster Servers / Nodes</h4>
-                <hr />
-                <div  id="test_cluster_form">
-
-                    
-                    <div class="alert alert-info mt-3 small" role="alert">
-                        Please ensure your Cluster Servers / Nodes are running and available before testing the cluster
-                    </div>
-                    <div class="mx-auto" style="max-width: 500px;">
-                        <div class="input-group mb-3">
-                            <label for="cluster-jobs" class="input-group-text">Number of Jobs</label> 
-                            <select id="cluster-jobs" class="form-select" >
-                                <option value="16">16</option>
-                                <option value="32" selected>32</option>
-                                <option value="64">64</option>
-                                <option value="128">128</option>
-                                <option value="256">256</option>
-                            </select> 
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="jobs-length" class="input-group-text">Jobs Length</label> 
-                            <select id="jobs-length" class="form-select" >
-                                <option value="0">Random (1-5 secs)</option>
-                                <option value="1">1 Second</option>
-                                <option value="2">2 Second</option>
-                                <option value="3">3 Second</option>
-                                <option value="5">5 Second</option>
-                            </select> 
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="cluster-colour" class="input-group-text">Cluster Colour</label> 
-                            <select id="cluster-colour" class="form-select" >
-                                <option value="" selected>Default</option>
-                                <option value="red">Red</option>
-                                <option value="orange" >Orange</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                                <option value="indigo">Indigo</option>
-                                <option value="violet">Violet</option>
-                                <option value="random">Random</option>
-                            </select> 
-                        </div>
-                        <div class=" text-center">
-                            <a href="#" class="btn btn-outline-primary " id="test_cluster"><i class="fa-solid fa-circle-nodes"></i> Test The Fog Node Cluster</a> 
-                        </div>
-                    </div>
-                
-                
-                </div>
-
-                <hr>
-                <h4>Results</h4>
-                <a href="#" onclick="$('#cluster-test-log').toggle();$('#cluster-test-log-full').toggle(); return false;">Toggle Basic/Full Log</a>
-                <div id="cluster-test-log" class="results mx-auto" >
-                    Click the 'Test Cluster' button above to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
-                </div>
-                <div id="cluster-test-log-full" class="results mx-auto" style="display: none;" >
-                    Click the 'Test Cluster' button above to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
-                </div>
-
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Testing
             </div>
             
+            
+            <!-- Nav Item - Sensor Data -->
+            <li class="nav-item">
+                <a class="nav-link subnav-link" attr-tab="servers" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Test The Cluster</span></a>
+            </li>
+            
+            <!-- Nav Item - Passive Data -->
+            <li class="nav-item">
+                <a class="nav-link subnav-link" attr-tab="client" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Test The Client</span></a>
+            </li>
+            
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
            
             
-            <!-- TAB -->
-            <div id="test_leds" class="chart_content">
-
-                <div class="mx-auto" style="max-width: 500px;">
-                    <h4>Test LEDs on the Client</h4>
-                    <hr />
-                    <input type="range" class="form-range" id="light" min="0" max="51" step="1" value="0">
-                </div>
-
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
+            <!-- Sidebar Message 
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
+                    and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
+                    Pro!</a>
+            </div>
+            -->
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <!--<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sheffield Hallam University</span>
+                                <img class="img-profile rounded-circle" src="img/shu-logo-bw.png">
+                            </a>-->
+                            <span class="mr-2 d-none d-md-inline text-gray-600 small">Sheffield Hallam University | Smart Computing</span>
+                                <img class="" height="30" src="img/shu-logo-bw.png">
+                            
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                    <!-- SUB TABS -->
+                    <ul class="nav sub-tabs nav-fill">
+                        <li class="nav-item">
+                            <a class="subnav-link active" aria-current="page" href="#" attr-tab="servers">Test The Cluster</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="subnav-link" href="#" attr-tab="client">Test The Client LEDs</a>
+                        </li>
+                    </ul>
+                    <br>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Tab Content-->
+                    <div id="servers" class="subtab-content active">
+                    <!-- Content Row -->
+                        
+                    
+                        <div  class="row ">
+
+                            
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-dark">Run A Test</h6>
+                                        
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div id="test_cluster_form">
+                                            <div class="alert alert-info text-center" role="alert">
+                                                Please ensure your Cluster Servers / Nodes are running and available before testing the cluster
+                                            </div>
+                                            <div class="mx-auto" style="max-width: 500px;">
+                                                
+                                                <div class="input-group mb-3">
+                                                    <label for="cluster-jobs" class="input-group-text">Number of Jobs</label> 
+                                                    <select id="cluster-jobs" class="form-control" >
+                                                        <option value="16">16</option>
+                                                        <option value="32" selected>32</option>
+                                                        <option value="64">64</option>
+                                                        <option value="128">128</option>
+                                                        <option value="256">256</option>
+                                                    </select> 
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label for="jobs-length" class="input-group-text">Jobs Length</label> 
+                                                    <select id="jobs-length" class="form-control" >
+                                                        <option value="0">Random (1-5 secs)</option>
+                                                        <option value="1">1 Second</option>
+                                                        <option value="2">2 Second</option>
+                                                        <option value="3">3 Second</option>
+                                                        <option value="5">5 Second</option>
+                                                    </select> 
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <label for="cluster-colour" class="input-group-text">Cluster Colour</label> 
+                                                    <select id="cluster-colour" class="form-control" >
+                                                        <option value="" selected>Default</option>
+                                                        <option value="red">Red</option>
+                                                        <option value="orange" >Orange</option>
+                                                        <option value="yellow">Yellow</option>
+                                                        <option value="green">Green</option>
+                                                        <option value="blue">Blue</option>
+                                                        <option value="indigo">Indigo</option>
+                                                        <option value="violet">Violet</option>
+                                                        <option value="random">Random</option>
+                                                    </select> 
+                                                </div>
+                                                <div class=" text-center">
+                                                    <a href="#" class="btn btn-success " id="test_cluster"><i class="fa-solid fa-circle-nodes"></i> Test The Cluster</a> 
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Area Chart -->
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-dark">Results</h6>
+                                        
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body text-center">
+                                        <a href="#" onclick="$('#cluster-test-log').toggle();$('#cluster-test-log-full').toggle(); return false;">Toggle Basic/Full Log</a>
+                                        <div id="cluster-test-log" class="results mx-auto" >
+                                            Click the 'Test The Cluster' button to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
+                                        </div>
+                                        <div id="cluster-test-log-full" class="results mx-auto" style="display: none;" >
+                                            Click the 'Test The Cluster' button to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>  
+
+
+
+                    <!-- Passive Data Row -->
+                    <div id="client" class="row subtab-content" style="display: none;">
+                    
+                        
+
+                        <!-- Data Area -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-dark">Test Client LEDs</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body text-center">
+                                    <label for="light" class="form-label">Use the slider to adjust the brightness of the LEDs on the 'Client' device</label>
+                                    <br>
+                                    <input type="range" class="form-range" id="light" min="0" max="51" step="1" value="0" style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                    
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Jonathan Zasada-James / Sheffield Hallam University - 2025</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
+        <!-- End of Content Wrapper -->
+
     </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
 
-    <!-- End Page Content -->
-    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
 
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-        <p class="w3-medium">Jonathan Zasada-James / Sheffield Hallam University - 2025</p>
-    </footer>
-
-
-    <!-- jQuery-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    
     
     <!-- include socket.io client side script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 
-    <!-- Custom JS -->
     <script src="scripts.js"></script>
-
 
 </body>
 

@@ -1,0 +1,252 @@
+body {
+    background-color: #f1f1f1 !important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #621b40;
+}
+
+a.nav-link {
+    font-weight: 600;
+}
+
+
+
+a.nav-link.active {
+    font-size: 1.2em;
+    border-color: #621b40 !important;
+    border-width: 3px;
+    border-bottom: 1px solid #FFF !important;
+}
+
+ul.sub-tabs li.nav-item a {
+    border: 1px solid #999;
+    border-bottom: 1px solid #CCC;
+    padding-top: 0.2em;
+    border-radius: 0.4em 0.4em 0em 0em;
+    display: block;
+    background: #f1f1f1;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8em;
+}
+
+ul.sub-tabs li.nav-item a.active {
+    border-bottom: none;
+    padding-bottom: 0em;
+    margin-top: -0.2em;
+    background: none;
+    font-size: 1em;
+}
+
+.subnav-link.active {
+    font-weight: bold;
+}
+
+.w3-bar {
+    background-color: #621b40 !important;
+}
+
+.w3-bar .w3-button:hover {
+    background-color: #ba0046 !important;
+    color: #FFFFFF !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .w3-bar-item {
+        font-size: 0.8em;
+    }
+}
+
+.w3-content {
+    background-color: #FFFFFF !important;
+}
+
+#charts canvas {
+    max-height: 200px !important;
+}
+
+#charts .chart-container canvas {
+    max-height: none !important;
+    display: block;
+}
+
+.chart-container {
+    width: 100%;
+    height: 250px;
+}
+
+.value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.results {
+    font-family: monospace;
+    font-weight: 500;
+    border: 2px solid #DDDDDD;
+    word-wrap: break-word;
+    letter-spacing: -1px;
+    padding: 0.4em;
+    background: #111;
+    color: #eee;
+    text-align: left;
+    max-width: 800px;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+
+#results {
+    border-top: 1px solid #999;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#results li {
+    border-bottom: 1px solid #999;
+    padding: 1em 0 0.6em;
+}
+
+@media only screen and (max-width: 600px) {
+    #results li {
+        font-size: 0.8em;
+    }
+}
+
+#results li h3 {
+    line-height: 1em;
+    padding-bottom: 0;
+    display: inline-block;
+    margin-right: 0.4em;
+}
+
+@media only screen and (max-width: 600px) {
+    #results li h3 {
+        font-size: 1.5em;
+    }
+}
+
+#results li span {
+    font-size: 1.3em;
+    float: right;
+}
+
+#results li span.small {
+    font-size: 1em;
+}
+
+#results li span.xsmall {
+    font-size: 0.8em;
+}
+
+
+
+
+i.red {
+    color: rgb(185, 32, 103);
+}
+
+i.green {
+    color: rgb(36, 163, 36);
+}
+
+i.blue {
+    color: rgb(85, 58, 204);
+}
+
+.tag {
+    background: #eee;
+    padding: 0.2em;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+
+@media (max-width: 450px) {
+    .col-md-3.col-sm-6,
+    .col-md-6.col-sm-6.col-sm-6
+    {
+        flex: 0 0 auto;
+        width: 50%;
+        margin-bottom: 1em;
+    }
+
+    .col-md-2.col-sm-4,
+    .col-md-4.col-sm-4 {
+        flex: 0 0 auto;
+        width: 33%;
+    }
+}
+
+
+.compass {
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+    /* Make it circular */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #f0f0f0, #d0d0d0);
+    /* Optional background gradient */
+    overflow: hidden;
+    margin: auto;
+}
+
+#compass-needle {
+    position: absolute;
+    width: 60px;
+    /* Adjust to match your needle image */
+    height: auto;
+    /* Maintain aspect ratio */
+    transform-origin: center center;
+    /* Rotate around the center */
+    transition: transform 0.2s ease;
+    /* Smooth rotation */
+    rotate: -90deg;
+    /* Start at -90 degrees */
+}
+
+
+
+
+
+#sensor_data {
+    margin-top: 0.8em;
+    border-top: 1px solid #ccc;
+    padding-top: 0.8em;
+}
+
+#sensor_data hr {
+    margin-top: 0.8em;
+}
+
+.table-values .value {
+    font-size: 1em;
+    background-color: #EEE;
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    margin: 0.4em 0.2em;
+    border-radius: 0.4em;
+    font-family: monospace;
+    font-weight: 100;
+}
+
+.chart-area canvas {
+  position: relative;
+  height: 100% !important;  /* override fixed height */
+  width: 100% !important;
+}

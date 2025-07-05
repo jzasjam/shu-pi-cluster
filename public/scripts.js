@@ -40,6 +40,24 @@ $(document).ready(function () {
 
         return false;
     })
+    
+    // Sub Navigation Tabs
+    $('a.subnav-link').click(function(){
+        var tab_id = $(this).attr('attr-tab');
+        
+        // Hide all subtabs
+        $('ul.sub-tabs a.subnav-link.active').removeClass('active');
+        $('.subtab-content.active').removeClass('active').hide();
+        // Show the selected subtab
+        // Add .acctive clas to  ul.sub-tabs a.subnav-link with attr-tab
+        $('ul.sub-tabs a.subnav-link[attr-tab="'+tab_id+'"]').addClass('active');
+        
+        
+        $('#'+tab_id).addClass('active').show();
+        
+        return false;
+    })
+
 
     
     
