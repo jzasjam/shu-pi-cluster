@@ -117,6 +117,7 @@ socket.on('log_update', function (data) {
     if(data[0]=='cluster-test-log'){
         // Reshow Buttons on Completion
         $('#test_cluster_form').show();
+        $('#cluster-testing').hide(); // Hide the testing message
     }
 
 });
