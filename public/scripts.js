@@ -83,13 +83,23 @@ $(document).ready(function () {
             $('#cluster-test-log-full').html(message);
             
             // Hide the Button (reshow once script has returned)
-            $('#test_cluster_form').hide();
+            $('#cluster-test-button').hide();
             $('#cluster-testing').show(); // Show the testing message
+            // Reload the #cluster-status-iframe after 5 seconds
+            setTimeout(function(){
+                $('#cluster-status-iframe').attr('src', 'http://localhost:8181');
+                $('#cluster-status').show();
+            }, 1000);
         //}
         
         return false;
     });
 
+    // Close cluster status box
+    $('#close-cluster-status').click(function(){
+        $('#cluster-status').hide();
+        return false;
+    });
     
 
 });
@@ -106,7 +116,7 @@ function myFunction() {
 }
 
 
-// Receive An Update For A Log
+// Test Completed- Receive An Update For A Log
 socket.on('log_update', function (data) {
 
     // data[0] is the id of the log div
@@ -116,7 +126,7 @@ socket.on('log_update', function (data) {
     // On CLuster Test completion
     if(data[0]=='cluster-test-log'){
         // Reshow Buttons on Completion
-        $('#test_cluster_form').show();
+        $('#cluster-test-button').show();
         $('#cluster-testing').hide(); // Hide the testing message
     }
 

@@ -192,13 +192,6 @@
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                        <div id="cluster-testing" style="display: none;">
-                                            <div class="alert alert-warning text-center" role="alert">
-                                            <!-- Rotating Icon -->
-                                                <i class="fa-solid fa-circle-notch fa-spin"></i>
-                                                Testing the cluster, please wait...
-                                            </div>
-                                        </div>
                                         <div id="test_cluster_form">
                                             <div class="alert alert-info text-center" role="alert">
                                                 Please ensure your Cluster Servers / Nodes are running and available before testing the cluster
@@ -239,8 +232,15 @@
                                                         <option value="random">Random</option>
                                                     </select> 
                                                 </div>
-                                                <div class=" text-center">
+                                                <div id="cluster-test-button" class="text-center">
                                                     <a href="#" class="btn btn-success " id="test_cluster"><i class="fa-solid fa-circle-nodes"></i> Test The Cluster</a> 
+                                                </div>
+                                                <div id="cluster-testing" style="display: none;">
+                                                    <div class="alert alert-warning text-center" role="alert">
+                                                    <!-- Rotating Icon -->
+                                                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                                                        Testing the cluster, please wait...
+                                                    </div>
                                                 </div>
                                             </div>
                                         
@@ -257,11 +257,11 @@
                                     <div
                                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-dark">Results</h6>
-                                        
+                                        <!-- Toggle Basic/Full Button Floated Right -->
+                                        <button type="button" class="btn btn-primary info btn-sm" id="cluster-status-button" onclick="$('#cluster-test-log').toggle();$('#cluster-test-log-full').toggle();"><i class="fa-solid fa-eye"></i> Toggle Basic/Full Log</button>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body text-center">
-                                        <a href="#" onclick="$('#cluster-test-log').toggle();$('#cluster-test-log-full').toggle(); return false;">Toggle Basic/Full Log</a>
                                         <div id="cluster-test-log" class="results mx-auto" >
                                             Click the 'Test The Cluster' button to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
                                         </div>
@@ -269,6 +269,20 @@
                                             Click the 'Test The Cluster' button to perform a test of the Fog Node Server Cluster (make sure at least one Server / Fog Node is available)...
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            
+                            <div id="cluster-status" class="col-xl-12 col-lg-12" style="display: none;">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-dark">Cluster Status | http://localhost:8181 <em>(available while the cluster is active)</em></h6>
+                                        <!-- Close Button Floated Right -->
+                                        <button type="button" class="btn btn-danger btn-sm" id="close-cluster-status"><i class="fa-solid fa-xmark"></i> Close</button>
+                                    </div>
+                                    <iframe id="cluster-status-iframe" src="" style="width: 100%; height: 900px; border: none;"></iframe>          
                                 </div>
                             </div>
 
@@ -318,7 +332,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Jonathan Zasada-James / Sheffield Hallam University - 2025</span>
+                        <span>Created by Jonathan Zasada-James / Sheffield Hallam University - 2025</span>
                     </div>
                 </div>
             </footer>
