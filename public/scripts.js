@@ -84,6 +84,7 @@ $(document).ready(function () {
             
             // Hide the Button (reshow once script has returned)
             $('#test_cluster_form').hide();
+            $('#cluster-testing').show(); // Show the testing message
         //}
         
         return false;
