@@ -8,9 +8,14 @@
 
 Download or Clone the repository files to a chosen directory.
 
-Follow the below Client and Server(s) cluster setup instructions for Raspberry Pi's & SenseHAT's with browser based UI to test the cluster by illuminating the LED's - based on the [OctaPi Client Setup Instructions](https://projects.raspberrypi.org/en/projects/build-an-octapi/3)
+Follow the below Client and Server(s) cluster setup instructions elow for Raspberry Pi's & SenseHAT's with browser based UI to test the cluster by illuminating the LED's. 
+
+Adapted from the [OctaPi Client Setup Instructions](https://projects.raspberrypi.org/en/projects/build-an-octapi/3)
+
+***NOTE:  Tested in Raspbian Bookworrm (v11) and Bullseye (v12). UI Does NOT work in Bullseye ATM but Python code and cluster do***
 
 --------------------------------------------------------
+
 ## Client Install
 **Install the below to a Raspberry Pi - this will be the 'Client' to distribute jobs to the 'Servers'**
 
@@ -23,10 +28,6 @@ If [Python](https://www.python.org/downloads) is not installed...
 **Install the libraries which support distributing jobs to the cluster / servers / nodes**
 
 Dispy: `sudo pip3 install dispy`
-
-*Note: If issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...*
-
-`sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
 
 ### Client: UI Dependencies
 **These installations are required to create the UI web server with NodeJS**
@@ -77,10 +78,6 @@ Dispy:
 PsUtil: 
 `sudo pip3 install psutil`
 
-*Note: If you have issues with 'Managed Environment' run the below, then do 'sudo pip install package-name'...*
-
-`sudo mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old`
-
 --------------------------------------------------------
 ## How To Use:
 
@@ -91,18 +88,17 @@ PsUtil:
 
 3. Run The UI `node index.js` or double click `start-ui.sh` (you may need to make this executable `chmod +x start-ui.sh`)
 
-4. In browser on same network as client, go to http://[YOUR-CLIENT-IP]:8080 or http://[YOUR-CLIENT-HOSTNAME]:8080 to view the UI
+4. In browser on same network as client, go to http://localhost:8080 to view the UI
   This allows you to...
 
-   - Test Fog Node cluster
+   - Test Cluster/Nodes
    - Test Client LEDs
 
-![SHU Pi Cluster UI](https://github.com/user-attachments/assets/d94687f8-10b3-4182-8c67-2aa6e0d4bc29)
+![SHU Pi Cluster UI](https://github.com/user-attachments/assets/b00ba48e-62e1-4156-89ab-04c25a57324f)
 
-5. When the cluster is in use, you can view the Dispy dashboard at http://[YOUR-CLIENT-IP]:8181 or http://[YOUR-CLIENT-HOSTNAME]:8181
+5. When the cluster is in use, you can view the Dispy dashboard at http://localhost:8181
 
 ![Dispy Dashboard](https://github.com/user-attachments/assets/f6237e3a-971b-4e05-bbd2-b7ca78cc8f27)
-
 
 or
 
@@ -147,31 +143,23 @@ or
 
 
 ### **Start / Stop Server Node on Startup** ### 
- 
-> Edit the last line of the user crontab file... `sudo nano /var/spool/cron/crontabs/Fognode1`
-
-> Comment / Delete / Add... `@reboot sudo /home/pi/start_dispynode.sh`
-
-> Reboot `sudo reboot now`
 
 1. Create a startup script named ‘***start_dispynode.sh***’ and save somewhere like ‘***home/{username}/dispynode***’
 
 2. Add the below to the file...
-> #!/bin/sh -e
-
-> sleep 30
-
-> _IP=$(hostname -I | awk ‘{print $1}’)
-
-> dispynode.py -i $_IP –-daemon
-
+```
+#!/bin/sh -e
+sleep 30
+_IP=$(hostname -I | awk ‘{print $1}’)
+dispynode.py -i $_IP –-daemon
+```
 3. Make the script executable...
 > chmod +x start_dispynode.sh
 
 4. Open the user crontab file... 
 > crontab -e
 
-5. Add this to the final line of the file (editing the file path if needed) to start the server on boot or Comment / Delete to stop... 
+5. Add this to the final line of the file (after editing the file path username) to start the server on boot or Comment / Delete to stop... 
 > @reboot sudo /home/{username}/dispynode/start_dispynode.sh
 
 6. Reboot… 
