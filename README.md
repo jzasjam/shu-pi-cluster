@@ -1,4 +1,4 @@
-# Raspberry Pi Cluster
+# SHU Raspberry Pi Cluster
 ## Sheffield Hallam University
 
 ##### Jonathan Zasada-James (GitHub: jzasjam)
@@ -100,14 +100,15 @@ PsUtil:
 
 ![Dispy Dashboard](https://github.com/user-attachments/assets/f6237e3a-971b-4e05-bbd2-b7ca78cc8f27)
 
-or
+--------------------------------------------------------
+### The Main Script:
 
-1. Run the script
+The main script called from the UI is the Python file which defines a `compute(...)` method which when executed performs the function on all Rapberry Pi's connected to the same network and initialised with the installation.
+
+1. Run the script directly...
 
 Test the Cluster / Nodes / Servers (Jobs illuminate the SenseHAT LEDs and sleep for a random number of seconds)
 >`python cluster-leds.py`
-
-
 
 --------------------------------------------------------
 ## Client Troubleshooting:
