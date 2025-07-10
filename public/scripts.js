@@ -126,8 +126,8 @@ socket.on('log_update', function (data) {
 
     // data[0] is the id of the log div
     // data[1] is the message to appen
-    $('#'+data[0]).html(data[1]); // Puts the logged message into the correct div
-    $('#'+data[0]+'-full').html(data[2]); // Puts the logged message into the correct div
+    $('#'+data[0]).html('<pre>' + data[1] + '</pre>'); // Puts the logged message into the correct div
+    $('#'+data[0]+'-full').html('<pre>' + data[2] + '</pre>'); // Puts the logged message into the correct div
     // On CLuster Test completion
     if(data[0]=='cluster-test-log'){
         // Reshow Buttons on Completion

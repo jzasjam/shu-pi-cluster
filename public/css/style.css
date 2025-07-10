@@ -105,6 +105,12 @@ ul.sub-tabs li.nav-item a.active {
     text-align: left;
 }
 
+    .results pre {
+
+        color: #FFF;
+
+    }
+
 #results li {
     border-bottom: 1px solid #999;
     padding: 1em 0 0.6em;
