@@ -86,8 +86,12 @@ $(document).ready(function () {
             $('#cluster-test-button').hide();
             $('#cluster-testing').show(); // Show the testing message
             // Reload the #cluster-status-iframe after 5 seconds
+            // Get the current hostname
+            const hostname = window.location.hostname;
+            // Construct the iframe src URL
+            const iframeSrc = `http://${hostname}:8181`;
             setTimeout(function(){
-                $('#cluster-status-iframe').attr('src', 'http://localhost:8181');
+                $('#cluster-status-iframe').attr('src', iframeSrc);
                 $('#cluster-status').show();
             }, 1000);
         //}
