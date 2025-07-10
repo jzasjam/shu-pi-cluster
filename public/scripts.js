@@ -91,6 +91,7 @@ $(document).ready(function () {
             // Construct the iframe src URL
             const iframeSrc = `http://${hostname}:8181`;
             setTimeout(function(){
+                $('#cluster-status-iframe-src').html(iframeSrc);
                 $('#cluster-status-iframe').attr('src', iframeSrc);
                 $('#cluster-status').show();
             }, 1000);
