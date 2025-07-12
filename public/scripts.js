@@ -72,13 +72,13 @@ $(document).ready(function () {
     // Test The Cluster
     $('#test_cluster').click(function(){
 
-        //if(confirm("This will test the Fog Node Cluster, are you sure? If you do not have any Servers / Fog Nodes available, this will fail!")){
+        //if(confirm("This will test the Node Cluster, are you sure? If you do not have any Servers / Nodes available, this will fail!")){
 
             // Perform Task
             socket.emit('test_cluster', [$('#cluster-jobs').val(), $('#cluster-colour').val(), $('#jobs-length').val()]);
 
             // Waiting Message
-            message = 'Testing The Cluster In Progress...<br>You should see the LEDs light up when a Server / Fog Node is working on a job...<br>Please Wait for the Results...';
+            message = 'Testing The Cluster In Progress...<br>You should see the LEDs light up when a Server / Node is working on a job...<br>Please Wait for the Results...';
             $('#cluster-test-log').html(message);
             $('#cluster-test-log-full').html(message);
             

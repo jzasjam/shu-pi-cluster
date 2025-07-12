@@ -2,17 +2,27 @@ var http = require('http').createServer(handler); //require http server, and cre
 var fs = require('fs'); //require filesystem module
 var io = require('socket.io')(http, { allowEIO3: true }) //require socket.io module and pass the http object (server)
 var path = require('path');
+var os = require("os");
 
 //Using the standalone hw-specific library
-let matrix = require('sense-hat-led');
+//let matrix = require('sense-hat-led');
 //Using this library
 //matrix = require('node-sense-hat').Leds;
+// Check If SenseHAT available
+let senseHatAvailable = false;
+// Try to load the Sense HAT library
+try {
+	matrix = require('sense-hat-led'); // Or use 'node-sense-hat' as needed
+	senseHatAvailable = true;
+	console.log("[+] Sense HAT module loaded successfully.");
+} catch (err) {
+	console.warn("[!] Sense HAT module not available:", err.message);
+}
 
 // =====================================================================================
 // Create a server
 // =====================================================================================
 http.listen(8080); //listen to port 8080
-var os = require("os");
 var hostname = os.hostname();
 console.log("Server Running (http://"+hostname+":8080) (Ctrl+C to stop)");
 
@@ -86,17 +96,21 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 		lightvalue = Number(data)*5;
 		if (lightvalue!=0) {
 			console.log("Lights On at "+((lightvalue/255)*100).toFixed(0)+"%");
-			matrix.clear([lightvalue, lightvalue, lightvalue]);
+			if (senseHatAvailable) {
+				matrix.clear([lightvalue, lightvalue, lightvalue]);
+			}
 		} else {
 			console.log("Lights Off")
-			matrix.clear();
+			if (senseHatAvailable) {
+				matrix.clear();
+			}
 		}
 
 	});
 
 
 	// ==========================================
-	// Run A FogNode Cluster Test
+	// Run A Cluster Test
 	// ==========================================
 	socket.on('test_cluster', function (data) {
 
@@ -113,7 +127,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 
 
 	// ==========================================
-	// Funtion To Run Python Scripts With Arguments
+	// Function To Run Python Scripts With Arguments
 	// ==========================================
 	function runPy(scriptPath, args, log=false) {
 
@@ -141,7 +155,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 			// Loop through results entry
 			results.forEach((result) => {
 				// Add the result to the logResults string
-				if(!result.startsWith("[+]") && !result.startsWith("[X]")){
+				if(!result.startsWith("[+]") && !result.startsWith("[!]") && !result.startsWith("[X]")){
 					logResults += result + "<br>"
 				}
 				fullLogResults += result + "<br>"
